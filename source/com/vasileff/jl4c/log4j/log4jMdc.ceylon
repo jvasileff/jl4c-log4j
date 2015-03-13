@@ -31,10 +31,8 @@ object log4jMdc satisfies Mdc {
 
     shared actual
     String? get(Object key)
-        //https://github.com/ceylon/ceylon-compiler/issues/2058
         =>  if (is String key,
-                exists val = Log4jMdc.get(key),
-                is String val)
+                is String val = Log4jMdc.get(key))
             then val
             else null;
 
