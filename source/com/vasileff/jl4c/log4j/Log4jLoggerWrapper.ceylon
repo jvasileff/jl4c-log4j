@@ -30,7 +30,7 @@ class Log4jLoggerWrapper(category)
     void log(
         Priority priority,
         String|String() message,
-        Exception? exception) {
+        Throwable? throwable) {
 
         value level = levelFrom(priority);
         if (delegate.isEnabledFor(level)) {
@@ -39,7 +39,7 @@ class Log4jLoggerWrapper(category)
                          else message;
 
             delegate.log(
-                loggerFqcn, levelFrom(priority), msg, exception);
+                loggerFqcn, levelFrom(priority), msg, throwable);
         }
     }
 
