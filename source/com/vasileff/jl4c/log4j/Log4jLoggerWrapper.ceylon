@@ -18,11 +18,14 @@ import org.apache.log4j {
     Log4jLogger=Logger
 }
 
-class Log4jLoggerWrapper(category)
+shared
+class Log4jLoggerWrapper(category, String? wrapperFqcn=null)
         satisfies Logger {
 
     shared actual
     Category category;
+
+    String loggerFqcn = wrapperFqcn else package.log4jLoggerWrapperFqcn;
 
     value delegate = Log4jLogger.getLogger(category.qualifiedName);
 
@@ -72,4 +75,4 @@ class Log4jLoggerWrapper(category)
             else ltrace; // default trace
 }
 
-String loggerFqcn = javaClass<Log4jLoggerWrapper>().name;
+String log4jLoggerWrapperFqcn = javaClass<Log4jLoggerWrapper>().name;
