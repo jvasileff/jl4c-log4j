@@ -1,9 +1,9 @@
 import ceylon.logging {
-    logger
+    loggerFactory
 }
 
 shared
 void useLog4jLogging() {
-    logger = log4jLogger;
+    loggerFactory = log4jLoggerFactory;
     mdc = log4jMdc;
 }

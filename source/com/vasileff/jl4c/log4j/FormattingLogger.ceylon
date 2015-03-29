@@ -8,7 +8,7 @@ import ceylon.logging {
     levelWarn=warn,
     Logger,
     levelFatal=fatal,
-    logger
+    loggerFactory
 }
 
 shared
@@ -118,4 +118,5 @@ class FormattingLogger(Logger delegate) {
 
 shared
 FormattingLogger formattingLogger(Category category)
-    =>  FormattingLogger(logger(category));
+    =>  FormattingLogger(loggerFactory.logger(
+            category, `FormattingLogger`));
