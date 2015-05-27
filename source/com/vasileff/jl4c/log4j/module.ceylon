@@ -1,3 +1,4 @@
+native("jvm")
 module com.vasileff.jl4c.log4j "0.0.1" {
     import ceylon.interop.java "1.1.1";
     shared import ceylon.logging "1.1.1";
